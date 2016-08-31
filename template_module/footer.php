@@ -2,7 +2,7 @@
 
     <script src="../template_module/required_javascript/jquery.min.js"></script>
 
-
+ <script src="../template_module/required_javascript/chart.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
 

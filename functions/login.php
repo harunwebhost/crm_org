@@ -19,7 +19,7 @@ $_SESSION['login_username']=$login_username;
 
 if($login_userntype=="master"){
 //header("location:../master");
-page_redirection("../master/index.php","Logged In");
+page_redirection("../master/dashboard.php","Logged In");
 }else{
 //header("location:../employees");
 page_redirection("../employees/index.php","Logged In");

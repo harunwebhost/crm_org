@@ -1,10 +1,3 @@
-
-
-<script>
-var d = new Date();
-document.getElementById("demo").innerHTML = d.toUTCString();
-</script>
-
 <nav class="navbar navbar-dark bg-primary" role="navigation" style="margin-bottom: 0">
 
             <div class="navbar-header">
@@ -189,6 +182,7 @@ document.getElementById("demo").innerHTML = d.toUTCString();
                         </li>
 
                         
+                          <li><a href="../master/change_password.php"><i class="fa fa-exchange" aria-hidden="true"></i>Change Password</a></li>    
 
                         <li><a href="../functions/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li> 
 
@@ -285,7 +279,7 @@ document.getElementById("demo").innerHTML = d.toUTCString();
                      
 
                         
-
+                    <li><a href="../employees/change_password.php"><i class="fa fa-exchange" aria-hidden="true"></i>Change Password</a></li> 
                         <li><a href="../functions/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li> 
 
                     </ul>
