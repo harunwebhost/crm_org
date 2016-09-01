@@ -19,7 +19,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <!-- <div class="row">
+            <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -28,14 +28,15 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">0</div>
-                                    <div>Under Development</div>
+                                    <div class="huge"><?php //echo get_my_total('Free trail'); ?></div>
+                                    <div>Free Trails</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
+                                <span class="pull-left">
+                                <a href="http://crm.glitzresearch.com/master/free_trail.php?total=1">View Details</a></span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -108,7 +109,7 @@
                         </a>
                     </div>
                 </div>
-            </div> -->
+            </div> 
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
@@ -148,19 +149,20 @@
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
+                                        More Analysis 
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
+                                        <li><a href="#">Today's FreeTrail</a>
                                         </li>
-                                        <li><a href="#">Another action</a>
+                                        <li><a href="#">Weekly FreeTrail</a>
                                         </li>
-                                        <li><a href="#">Something else here</a>
+                                        <li><a href="#">Monthly FreeTrail</a>
+                                        </li>
+                                        <li><a href="#">Quarterly</a>
                                         </li>
                                         <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -168,15 +170,12 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-4">
-                                 
-                                    <!-- /.table-responsive -->
-                                </div>
+                                
                                 <!-- /.col-lg-4 (nested) -->
                                 <div class="col-lg-8">
-                                    <div id="performance">
-                                      <canvas id="showchart"></canvas>
-                                    </div>
+                                     <div id="chart-container">
+                                     </div>
+
                                 </div>
                                 <!-- /.col-lg-8 (nested) -->
                             </div>
@@ -224,4 +223,7 @@
         </div>
 
    <?php require_once('../template_module/footer.php'); ?>
-    <script src="../template_module/required_javascript/permarmance.js"></script>
+   <script src="chart/fusioncharts.js"></script>
+    <script src="chart/fusioncharts.charts.js"></script>
+    <script src="chart/themes/fusioncharts.theme.zune.js"></script>
+    <script src="chart/app.js"></script>

@@ -47,12 +47,10 @@
 		}else{
 
 			$requested_plan=sql_injection($_POST['requested_plan']);
-
 			$demostart=sql_injection($_POST['start']);
-
 			$demoend=sql_injection($_POST['end']);
-
-			$sql_lead_log="INSERT INTO crm_demousers VALUES (null,'$lead_id','$requested_plan',now(),'$demostart','$demoend','$logged_user_id','$user_comments')";
+			$current_data_time=current_data_time();
+			$sql_lead_log="INSERT INTO crm_demousers VALUES (null,'$lead_id','$requested_plan','$current_data_time','$demostart','$demoend','$logged_user_id','$user_comments')";
 
 			$sql_insert_lead_log=execute_sql_query($sql_lead_log);
 

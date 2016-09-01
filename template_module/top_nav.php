@@ -14,7 +14,7 @@
 
                 </button>
 
-                <a class="navbar-brand" href="index.php">Customer Relationship Management</a>
+                <a class="navbar-brand" href="dashboard.php">Customer Relationship Management</a>
 
             </div>
 

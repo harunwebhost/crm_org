@@ -1,0 +1,30 @@
+$(function() {
+    $.ajax({
+
+        url: 'chart_data.php',
+        type: 'GET',
+        success: function(data) {
+            chartData = data;
+            var chartProperties = {
+                "caption": "",
+                "xAxisName": "Employee Name",
+                "yAxisName": "Free Trails",
+                "rotatevalues": "1",
+                "theme": "zune"
+            };
+
+            apiChart = new FusionCharts({
+                type: 'column2d',
+                renderAt: 'chart-container',
+                width: '550',
+                height: '350',
+                dataFormat: 'json',
+                dataSource: {
+                    "chart": chartProperties,
+                    "data": chartData
+                }
+            });
+            apiChart.render();
+        }
+    });
+});
