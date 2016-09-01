@@ -5,11 +5,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php require_once('../template_module/top_nav.php'); ?>
-       
-          
-  
-                           
+        <?php //require_once('../template_module/top_nav.php'); ?>
  
   <div id="page-wrapper">
             <div class="row">
@@ -19,7 +15,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
+           <!--  <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -109,7 +105,7 @@
                         </a>
                     </div>
                 </div>
-            </div> 
+            </div> --> 
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
@@ -148,11 +144,12 @@
                             <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
                             <div class="pull-right">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle status"
+                                      data-toggle="dropdown">
                                         More Analysis 
                                         <span class="caret"></span>
                                     </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
+                                    <ul class="dropdown-menu pull-right dropdown-inverse" role="menu" >
                                         <li><a href="#">Today's FreeTrail</a>
                                         </li>
                                         <li><a href="#">Weekly FreeTrail</a>
@@ -173,8 +170,9 @@
                                 
                                 <!-- /.col-lg-4 (nested) -->
                                 <div class="col-lg-8">
-                                     <div id="chart-container">
-                                     </div>
+                                
+                                   <div id="chart-container">
+                                     </div> 
 
                                 </div>
                                 <!-- /.col-lg-8 (nested) -->

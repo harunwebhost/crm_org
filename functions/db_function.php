@@ -1,7 +1,7 @@
 <?php 
 // Create connection
 function db_connection(){
-$connection = mysqli_connect('localhost', 'crmglitzresearch', 'crmglitzresearch21');
+$connection = mysqli_connect('localhost', 'root', '');
 
 // Check connection
 if (!$connection) {
