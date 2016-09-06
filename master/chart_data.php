@@ -4,11 +4,11 @@ $servername = "localhost";
 
 //username to connect to the db
 //the default value is root
-$username = "crmglitzresearch";
+$username = "root";
 
 //password to connect to the db
 //this is the value you would have specified during installation of WAMP stack
-$password = "crmglitzresearch21";
+$password = "";
 
 //name of the db under which the table is created
 $dbName = "stockglizsearch_db";
@@ -20,12 +20,36 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+$selected=$_GET['selected'];
+if ($selected=="Today's FreeTrail") {
+ $date = date('Y-m-d');
+}if($selected=='Weekly FreeTrail'){
+$date = date('Y-m-d H:i:s',time()-(7*86400));
+}if($selected=='Monthly FreeTrail'){
+$date = date('Y-m-d',time()-(30*86400));
+}
+if($selected=='Quarterly'){
+$date = date('Y-m-d',time()-(90*86400));
+}
+if($selected=="Today's FreeTrail"){
+			 $query = "SELECT demouser.emp_id, COUNT(demouser.emp_id) As Count, 
+			emptble.emp_name FROM crm_demousers demouser
+			LEFT JOIN crm_employer emptble ON demouser.EMP_ID =  emptble.EMP_ID
+			WHERE 
+			date(demouser.contacat_date)='$date'
+			GROUP BY demouser.emp_id";
+
+}else{
+		 $query = "SELECT demouser.emp_id, COUNT(demouser.emp_id) As Count, 
+			emptble.emp_name FROM crm_demousers demouser
+			LEFT JOIN crm_employer emptble ON demouser.EMP_ID =  emptble.EMP_ID
+			WHERE 
+			date(demouser.contacat_date)<'$date'
+			GROUP BY demouser.emp_id";
+
+}
 
 
-
-$query = "SELECT demouser.emp_id, COUNT(demouser.emp_id) As Count, emptble.emp_name FROM crm_demousers demouser 
-LEFT JOIN crm_employer emptble ON demouser.EMP_ID =  emptble.EMP_ID
-GROUP BY demouser.emp_id";
 
 
 
