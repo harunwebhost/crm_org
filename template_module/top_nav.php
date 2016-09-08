@@ -71,14 +71,30 @@
                         <li class="sidebar-search">
 
                         </li>
+                       <li>
 
-                        
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Leads<span class="fa arrow"></span></a>
 
-                          <li>
+                            <ul class="nav nav-second-level">
 
-                            <a href="assign_form.php"><i class="fa fa-dashboard fa-fw"></i>Assign Lead</a>
+                            <li></li>
 
-                        </li>
+                               <li><a href="assign_form.php"><i class="fa fa-dashboard fa-fw"></i>Assign Lead</a></li>
+                                <li> <a href="#" data-toggle="modal" data-target="#lead_modal" data-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a></li>
+                               <li><a href="#" data-toggle="modal" data-target="#free_trail" data-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i> Add Free Trail</a>
+                                        </li>
+                              
+                               
+                            </ul>
+
+                            <!-- /.nav-second-level -->
+
+                        </li>    
+
+
+
+
+
 
                         <li>
 
@@ -221,12 +237,10 @@
                                         </li>
 
                              
-
-                                <li>
-
-                                    <a href="index.php?total=1">Total</a>
-
-                                </li>
+                                  <li> <a href="#" data-toggle="modal" data-target="#lead_modal" data-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a></li> 
+                                   <li><a href="#" data-toggle="modal" data-target="#free_trail" data-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i> Add Free Trail</a>
+                                        </li>           
+                                <li><a href="index.php?total=1">Total</a></li>
 
                                 <li>
 
@@ -297,4 +311,68 @@
 </nav>
 
 
+<?php   if($_SESSION['login_userntype']=="master"){
+        require_once('../master/new_lead_form.php');
+        require_once('../master/free_tail_form.php');
+        }
+        else{
+            require_once('../employees/new_lead_form.php');
+            require_once('../employees/free_tail_form.php');
+        }
+        ?>
+<script src="required_javascript/jquery.min.js"></script>
+                       <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
+
+
+<script>
+
+         $(function() {
+
+            $( "#start" ).datepicker({
+
+               showWeek:true,
+
+               yearSuffix:"-CE",
+
+               showAnim: "slide",
+
+                dateFormat: "mm-dd-yy",
+
+              minDate: '0', 
+
+            });
+
+
+
+            $( "#end" ).datepicker({
+
+               showWeek:true,
+
+               yearSuffix:"-CE",
+
+               showAnim: "slide",
+
+               dateFormat: "mm-dd-yy",
+
+                minDate: '0', 
+
+            });
+
+            $( "#nextdate" ).datepicker({
+
+               showWeek:true,
+
+               yearSuffix:"-CE",
+
+               showAnim: "slide",
+
+              dateFormat: "mm-dd-yy",
+
+                minDate: '0', 
+
+            });
+
+         });
+
+      </script>

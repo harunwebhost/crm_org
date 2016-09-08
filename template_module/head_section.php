@@ -1,5 +1,13 @@
-<?php session_start();
+<?php 
+session_start();
 require_once('../functions/db_function.php');
+$login_userntype=$_SESSION['login_userntype'];
+/*if($login_userntype!="master"){
+    $access_ip=get_user_ip_address();
+    if($access_ip!="192.168.1.2" || $access_ip!="192.168.1.253"){
+        page_redirection("../index.php","Access is Restricted");
+    }
+}*/
 if(!isset($_SESSION['login_username'])){
 page_redirection("../index.php","Session Expair Please Login");
 }

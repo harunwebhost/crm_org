@@ -5,7 +5,11 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php //require_once('../template_module/top_nav.php'); ?>
+        <?php require_once('../template_module/top_nav.php'); ?>
+       
+          
+  
+                           
  
   <div id="page-wrapper">
             <div class="row">
@@ -15,7 +19,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-           <!--  <div class="row">
+            <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -24,7 +28,7 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php //echo get_my_total('Free trail'); ?></div>
+                                    <div class="huge"><?php echo get_my_total('Free trail'); ?></div>
                                     <div>Free Trails</div>
                                 </div>
                             </div>
@@ -105,7 +109,7 @@
                         </a>
                     </div>
                 </div>
-            </div> --> 
+            </div> 
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
@@ -139,7 +143,7 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <div class="panel panel-default">
+                  <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
                             <div class="pull-right">

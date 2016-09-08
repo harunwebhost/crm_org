@@ -1,98 +1,112 @@
 <?php 
+session_start();
+require_once('db_function.php'); 
 
+ $keys=""; 
 
+ $values=""; 
 
-require_once('db_function.php');
+ $table=sql_injection($_POST['table_name']); 
 
-	$keys="";
+ $action=sql_injection($_POST['action']); 
 
-	$values="";
+if($action=="update"){ 
 
-$table=sql_injection($_POST['table_name']);
+ $update_key=$_POST['update_key']; 
 
-$action=sql_injection($_POST['action']);
+ $primary_key=$_POST['primary_key']; 
 
+ $message="Record is updated"; 
 
+ foreach($_POST['page'] as $x=>$x_value) 
 
-if($action=="update"){
+ { 
 
-$update_key=$_POST['update_key']; 
+ $keys= $x; 
 
-$primary_key=$_POST['primary_key'];
+ $filter_data=sql_injection($x_value); 
 
-$message="Record is updated";
+ $values.=$keys."="."'$filter_data',"; 
 
-  foreach($_POST['page'] as $x=>$x_value)
+ } 
 
-  {
+ $values=rtrim($values,','); 
 
-  $keys= $x;
+ echo $sql = "update $table SET $values WHERE $primary_key=$update_key"; 
 
-  $filter_data=sql_injection($x_value);
+}else{ 
 
-  $values.=$keys."="."'$filter_data',";
+ /*used for inserting values into the*/ 
 
-}
+ $message="Record is Inserted"; 
 
-$values=rtrim($values,',');
+ foreach($_POST['page'] as $x=>$x_value) 
 
-echo $sql = "update $table SET $values WHERE  $primary_key=$update_key";
+ { 
 
+ $keys .= $x.','; 
 
+ $filter_data=sql_injection($x_value); 
 
-}else{
+ $values.='"'.$filter_data.'",'; 
 
-/*used for inserting values into the*/
+ } 
 
-$message="Record is Inserted";
+ 
 
-  foreach($_POST['page'] as $x=>$x_value)
+ $values=rtrim($values,','); 
 
-  {
+ $keys=rtrim($keys,','); 
 
-  $keys .= $x.',';
+ $sql = "INSERT INTO $table ($keys) VALUES ($values)"; 
 
-  $filter_data=sql_injection($x_value);
+ 
+if($table=="crm_leads"){
+ $mobile=sql_injection($_POST['page']['lead_mobile']);
+ $dublicate="SELECT * FROM crm_leads where lead_mobile='$mobile'";
+ $run_dublicate=execute_sql_query($dublicate);
+$count=sql_fetch_num_rows($run_dublicate);
+ 
+    if($count>0) 
+    {
+      
+             if($_SESSION['login_userntype']=="master"){
+                  page_redirection('../master/index.php',"Enterd Mobile Number Alredy Present");
+              }else{
+                 page_redirection('../employees/index.php',"Enterd Mobile Number Alredy Present");
+              }
+     }else
+            {
 
-  $values.='"'.$filter_data.'",';
-
-   }
-
-   
-
-$values=rtrim($values,',');
-
-$keys=rtrim($keys,',');
-
-$sql = "INSERT INTO $table ($keys) VALUES ($values)";
-
-
-
- if($table=="crm_employer"){
-
-  $sql_login = "INSERT INTO crm_users (`user_id`,`user_name`,`user_email`,`user_password`,`user_type`,`status`) VALUES (null,$values,'emplyee','1')";
-
-   execute_sql_query($sql_login); 
-
-  }
-
-
-
-
-
-}
-
-if (execute_sql_query($sql)) {
-
- //   echo $message;
-
-page_redirection('../master/index.php',"Record is Inserted");
-
-} else {
-
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+             execute_sql_query($sql);
+            if($_SESSION['login_userntype']=="master"){
+                  page_redirection('../master/index.php',"Record Is Insertd");
+              }else{
+                 page_redirection('../employees/index.php',"Record Is Insertd");
+              } 
+           }
 
 }
+
+
+ if($table=="crm_employer"){ 
+     $sql_login = "INSERT INTO crm_users (`user_id`,`user_name`,`user_email`,`user_password`,`user_type`,`status`) VALUES (null,$values,'emplyee','1')"; 
+    execute_sql_query($sql_login); 
+    page_redirection('../master/index.php',"Record is Inserted"); 
+ 
+ } 
+
+} 
+
+ /*if (execute_sql_query($sql)) { 
+ // echo $message; 
+ page_redirection('../master/index.php',"Record is Inserted"); 
+ } else { 
+ echo "Error: " . $sql . "<br>" . mysqli_error($conn); 
+
+ } 
+*/
+ 
 
 
 

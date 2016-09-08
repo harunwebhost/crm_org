@@ -4,11 +4,11 @@ $servername = "localhost";
 
 //username to connect to the db
 //the default value is root
-$username = "root";
+$username = "crmglitzresearch";
 
 //password to connect to the db
 //this is the value you would have specified during installation of WAMP stack
-$password = "";
+$password = "crmglitzresearch21";
 
 //name of the db under which the table is created
 $dbName = "stockglizsearch_db";
@@ -20,6 +20,8 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
+
+
 $selected=$_GET['selected'];
 if ($selected=="Today's FreeTrail") {
  $date = date('Y-m-d');

@@ -114,9 +114,9 @@ function show_leads($emp_id,$user_type){
               
                 if($user_type=="master" && $emp_id="master"){
                     if(isset($_GET['assigned'])){
-                      echo $sql_lead="SELECT * FROM crm_leads tbl_leads, crm_employer tble_employer 
+                       $sql_lead="SELECT * FROM crm_leads tbl_leads, crm_employer tble_employer 
                         WHERE 
-                        tbl_leads.lead_status='assined'
+                        tbl_leads.lead_status='assigned'
                             AND 
                         tbl_leads.emp_id=tble_employer.emp_id";
                         $label="Total Assigned";
@@ -150,7 +150,7 @@ function show_leads($emp_id,$user_type){
                         WHERE 
                         tbl_leads.emp_id='$emp_id'
                         AND 
-                        tbl_leads.lead_status='assined'
+                        tbl_leads.lead_status='assigned'
                         AND
                         tble_employer.emp_id='$emp_id'  
                         ";
@@ -486,11 +486,13 @@ function show_free_trail($emp_id,$user_type){
                if(isset($_GET['total'])){
                     //echo "assigned".$assined=$_GET['assigned'];
               
-                  $sql_lead="SELECT * FROM crm_leads tbl_leads, crm_employer tble_employer, crm_demousers demouser 
+                   $sql_lead="SELECT * FROM crm_leads tbl_leads, crm_employer tble_employer, crm_demousers demouser 
                         WHERE
                         tbl_leads.lead_id=demouser.lead_id
                         AND
-                        tble_employer.emp_id='$emp_id'  
+                        tble_employer.emp_id='$emp_id' 
+                        AND 
+                        demouser.emp_id='$emp_id'
                         ";
 
                  $label="Total Free Trail";
@@ -502,6 +504,9 @@ function show_free_trail($emp_id,$user_type){
                         AND
                         tble_employer.emp_id='$emp_id'
                         AND 
+                        demouser.emp_id='$emp_id'
+                        AND 
+
                        date(demouser.contacat_date)='$today'
                     ";
                      $label="Today Free Trails";

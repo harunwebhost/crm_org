@@ -1,7 +1,7 @@
 <?php 
 // Create connection
 function db_connection(){
-$connection = mysqli_connect('localhost', 'root', '');
+$connection = mysqli_connect('localhost', 'crmglitzresearch', 'crmglitzresearch21');
 
 // Check connection
 if (!$connection) {
@@ -999,7 +999,7 @@ set_time_limit(0);
     }
  ?>
 
-<?php 
+ <?php 
         function get_emp(){
             $select_emp="SELECT * FROM crm_employer";
             $getemp=execute_sql_query($select_emp);
@@ -1022,5 +1022,18 @@ set_time_limit(0);
             <?php 
         }
         }
-        
+        function get_inserted_id($sql_crm_lead){
+      
+       
+       $conn = db_connection();
+                
+                    if (mysqli_query($conn, $sql_crm_lead)) {
+                        $last_id = mysqli_insert_id($conn);
+                        return  $last_id;
+                    } else {
+                        echo "Error: " . $sql_crm_lead . "<br>" . mysqli_error($conn);
+                    }
+       
+       
+    }
  ?>

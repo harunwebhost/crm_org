@@ -73,7 +73,7 @@
 									 	
 										<div id="result"></div>
 										</div>
-										<!-- <button id="submit" class="btn btn-info">Submit</button> -->
+										 <button id="submit" class="btn btn-info">Submit</button> 
 								</form>
 
 								

@@ -5,7 +5,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php //require_once('../template_module/top_nav.php'); ?>
+        <?php require_once('../template_module/top_nav.php'); ?>
        
           <?php //require_once('../template_module/dash.php'); ?>
             <!-- /.row -->

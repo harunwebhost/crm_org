@@ -1,1 +1,2 @@
 [17-Aug-2016 03:35:24 UTC] PHP Fatal error:  Class 'PHPExcel_IOFactory' not found in /home/ampisoftech123/public_html/crm/master/file_download.php on line 158
+[25-Aug-2016 12:12:08 Asia/calcutta] PHP Fatal error:  Call to undefined function get_emp() in /home/ampisoftech123/public_html/crm/master/tranfer_from.php on line 52
