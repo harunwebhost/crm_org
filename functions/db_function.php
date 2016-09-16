@@ -1022,18 +1022,17 @@ set_time_limit(0);
             <?php 
         }
         }
-        function get_inserted_id($sql_crm_lead){
-      
-       
-       $conn = db_connection();
-                
-                    if (mysqli_query($conn, $sql_crm_lead)) {
-                        $last_id = mysqli_insert_id($conn);
-                        return  $last_id;
-                    } else {
-                        echo "Error: " . $sql_crm_lead . "<br>" . mysqli_error($conn);
-                    }
-       
-       
+   
+
+
+function get_server(){
+            date_default_timezone_set('Asia/Kolkata');
+            $current_time=date('d-m-Y H:i:s');  
+            $current_ip=$_SERVER['REMOTE_ADDR'];
+            $added_by=1;
+            $server_details="'master','$current_time','$current_ip'";
+            return $server_details;
     }
+
+
  ?>
